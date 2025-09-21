@@ -166,6 +166,22 @@
          <span class="preco">1200Kz</span>
       </div>
      </section>
+<script>
+  let clickCount = 0;
 
+document.body.addEventListener('click', () => {
+  clickCount++; // incrementa cada clique
+  if (clickCount === 1) { // dispara fullscreen no primeiro clique
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { // Safari
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE11
+      elem.msRequestFullscreen();
+    }
+  }
+});
+</script>
 </body>
 </html>
