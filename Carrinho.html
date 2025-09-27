@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to left, #616161, #2f2f2f);
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #cart li {
+      margin: 10px 0;
+      padding: 5px;
+      border-bottom: 1px solid #fff;
+      display: flex;
+      align-items: center;
+    }
+    #cart img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+    #total {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    button {
+      margin-left: 10px;
+      padding: 3px 7px;
+      cursor: pointer;
+    }
+    #map {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+    }
+    #enviar {
+      margin-top: 20px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Meu Carrinho</h1>
+  <ul id="cart"></ul>
+  <div id="total"></div>
+  <div id="map"></div>
+  <button id="enviar">Enviar por Email</button>
+
+<script>
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+let usuario = JSON.parse(localStorage.getItem("usuario")) || null;
+const restaurante = [-8.864642, 13.227171];
+
+function atualizarCarrinho() {
+  const lista = document.getElementById("cart");
+  lista.innerHTML = "";
+  let total = 0;
+
+  carrinho.forEach((item, index) => {
+    const li = document.createElement("li");
+
+    // Imagem do produto
+    const img = document.createElement("img");
+    img.src = item.img || ""; // deve ter sido salvo ao adicionar no cardápio
+    li.appendChild(img);
+
+    // Nome e preço
+    const span = document.createElement("span");
+    span.textContent = `${item.nome} - ${item.preco} Kz`;
+    li.appendChild(span);
+
+    // Botão remover
+    const btnRemover = document.createElement("button");
+    btnRemover.textContent = "Remover";
+    btnRemover.addEventListener("click", () => {
+      carrinho.splice(index, 1);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      atualizarCarrinho();
+    });
+    li.appendChild(btnRemover);
+
+    lista.appendChild(li);
+    total += parseInt(item.preco);
+  });
+
+  document.getElementById("total").textContent = "Total: " + total + " Kz";
+}
+
+// Inicializa mapa
+function inicializarMapa() {
+  const map = L.map('map').setView(restaurante, 15);
+
+  L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.{ext}', {
+    minZoom: 0,
+    maxZoom: 20,
+    ext: 'png'
+  }).addTo(map);
+
+  L.marker(restaurante).addTo(map).bindPopup("Restaurante").openPopup();
+
+  if (usuario) {
+    const usuarioMarker = [usuario.lat, usuario.lng];
+    L.marker(usuarioMarker).addTo(map).bindPopup("Você está aqui").openPopup();
+
+    L.Routing.control({
+      waypoints: [
+        L.latLng(usuario.lat, usuario.lng),
+        L.latLng(restaurante[0], restaurante[1])
+      ],
+      routeWhileDragging: false,
+      draggableWaypoints: false,
+      addWaypoints: false
+    }).addTo(map);
+  }
+}
+
+// Botão enviar email
+document.getElementById("enviar").addEventListener("click", () => {
+  let texto = "Meu pedido:\n";
+  carrinho.forEach((item, i) => {
+    texto += `${i+1}. ${item.nome} - ${item.preco} Kz\n`;
+  });
+  let total = carrinho.reduce((sum, item) => sum + parseInt(item.preco), 0);
+  texto += `\nTotal: ${total} Kz\n`;
+
+  // Link Google Maps
+  if(usuario){
+    const mapsLink = `https://www.google.com/maps/dir/?api=1&origin=${usuario.lat},${usuario.lng}&destination=${restaurante[0]},${restaurante[1]}&travelmode=driving`;
+    texto += `Rota do cliente até o restaurante: ${mapsLink}`;
+  }
+
+  const email = "talatonaonline@gmail.com";
+  const assunto = "Pedido do Cardápio";
+  const body = encodeURIComponent(texto);
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(assunto)}&body=${body}`;
+});
+
+// Chama funções
+atualizarCarrinho();
+inicializarMapa();
+</script>
+</body>
+</html>
