@@ -227,6 +227,13 @@
         .catch(err => console.error("Erro SW:", err));
     }
   </script>
-
+script>document.body.addEventListener("click", () => {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.webkitRequestFullscreen) { 
+    // Safari iOS
+    document.documentElement.webkitRequestFullscreen();
+  }
+});</script>
 </body>
 </html>
