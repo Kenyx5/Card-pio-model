@@ -1,162 +1,189 @@
 <!DOCTYPE html>
-    <html lang="pt">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta name="description" content="Este site é um cardápio online feito por Lioqueni Macalo">
-      <meta name="author" content="Lioqueni Macalo">
-      <link rel="stylesheet" href="Cardapio.css">
-      <title>Cardápio</title>
-    </head>
-    <body>
-      
-    <header>
-      <div class="loader">
-        <div class="spinner"></div>
-      </div>
-      <div id="botao">
-        <a href="Carrinho.html"><img src="correio.png" alt="Link para o carrinho"></a>
-      </div>
-      <!-- Barra de navegação -->
-      <nav>
-        <div class="nave"><a href="#entradas"><img src="fast-food.png" alt="fast food"></a></div>
-        <div class="nave"><a href="#pratos"><img src="prato (1).png" alt="pratos"></a></div>
-        <div class="nave"><a href="#Sobremesas"><img src="sobremesa.png" alt="sobremesas"></a></div>
-      </nav>
-    
-      <!-- Slider -->
-      <div class="slider-container">
-        <div class="slider">
-          <div class="slide">Delicioso</div>
-          <div class="slide">Crocante</div>
-          <div class="slide">Sublime</div>
-        </div>
-      </div>
-    
-      <p class="intro">
-        Bem-vindo ao nosso cardápio online! Aqui você encontra nossos pratos, bebidas e sobremesas de forma rápida e prática. Explore as opções, escolha seu favorito e aproveite cada sabor.
-      </p>
-    
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Este site é um cardápio online feito por Lioqueni Macalo">
+  <meta name="author" content="Lioqueni Macalo">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="Cardapio.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#d32f2f">
+
+  <title>Cardápio</title>
+</head>
+<body>
+
+  <!-- Botão de instalação no topo -->
+  <header>
+    <button id="installBtn" style="display:non; margin:10px; padding:10px 20px; background:#d32f2f; color:#fff; border:none; border-radius:8px; cursor:pointer;">
+      Instalar Cardápio
+    </button>
+
+    <div class="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Botão carrinho -->
+    <div id="botao">
+      <a href="Carrinho.html"><img src="correio.png" alt="Link para o carrinho"></a>
+    </div>
+
+    <!-- Barra de navegação -->
     <nav>
       <div class="nave"><a href="#entradas"><img src="fast-food.png" alt="fast food"></a></div>
       <div class="nave"><a href="#pratos"><img src="prato (1).png" alt="pratos"></a></div>
       <div class="nave"><a href="#Sobremesas"><img src="sobremesa.png" alt="sobremesas"></a></div>
     </nav>
-    </header>
-    
-    <!-- Entradas -->
-    <section id="entradas">
-      <div class="iten">
-        <img src="burrito.webp" alt="burrito">
-        <div class="inf"><span class="titulo">Burrito/fahita</span>
-          <p>Tortilla de trigo macia recheada com carne suculenta, arroz, feijão, queijo derretido e temperos especiais.</p>
-        </div>
-        <span class="preco">1.500 Kz</span>
-        <button class="bbt" data-name="Burrito/fahita" data-price="1500" data-img="burrito.webp">+</button>
+
+    <!-- Slider -->
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide">Delicioso</div>
+        <div class="slide">Crocante</div>
+        <div class="slide">Sublime</div>
       </div>
-    
-      <div class="iten">
-        <img src="hambrguer.webp" alt="hambúrguer">
-        <div class="inf"><span class="titulo">Hambúrguer</span>
-          <p>Suculento hambúrguer com queijo, alface e tomate, servido no pão macio.</p>
-        </div>
-        <span class="preco">2.000 Kz</span>
-        <button class="bbt" data-name="Hambúrguer" data-price="2000" data-img="hambrguer.webp">+</button>
+    </div>
+
+    <p class="intro">
+      Bem-vindo ao nosso cardápio online! Aqui você encontra nossos pratos, bebidas e sobremesas de forma rápida e prática. 
+      Explore as opções, escolha seu favorito e aproveite cada sabor.
+    </p>
+  </header>
+
+  <!-- ======================= -->
+  <!-- Entradas -->
+  <!-- ======================= -->
+  <section id="entradas">
+    <div class="iten">
+      <img src="burrito.webp" alt="burrito">
+      <div class="inf">
+        <span class="titulo">Burrito/fahita</span>
+        <p>Tortilla de trigo macia recheada com carne suculenta, arroz, feijão, queijo derretido e temperos especiais.</p>
       </div>
-    
-      <div class="iten">
-        <img src="pizza.webp" alt="pizza">
-        <div class="inf"><span class="titulo">Pizza</span>
-          <p>Massa fina, molho de tomate, queijo derretido e recheio à escolha.</p>
-        </div>
-        <span class="preco">2.500 Kz</span>
-        <button class="bbt" data-name="Pizza" data-price="2500" data-img="pizza.webp">+</button>
+      <span class="preco">1.500 Kz</span>
+      <button class="bbt" data-name="Burrito/fahita" data-price="1500" data-img="burrito.webp">+</button>
+    </div>
+
+    <div class="iten">
+      <img src="hambrguer.webp" alt="hambúrguer">
+      <div class="inf">
+        <span class="titulo">Hambúrguer</span>
+        <p>Suculento hambúrguer com queijo, alface e tomate, servido no pão macio.</p>
       </div>
-    </section>
-    
-    <!-- Pratos -->
-    <section id="pratos">
-      <div class="iten">
-        <img src="fran.webp" alt="frango">
-        <div class="inf"><span class="titulo">Ensopado</span>
-          <p>Carne de porco macia cozida com cebola, alho e especiarias.</p>
-        </div>
-        <span class="preco">2.200 Kz</span>
-        <button class="bbt" data-name="Ensopado" data-price="2200" data-img="fran.webp">+</button>
+      <span class="preco">2.000 Kz</span>
+      <button class="bbt" data-name="Hambúrguer" data-price="2000" data-img="hambrguer.webp">+</button>
+    </div>
+
+    <div class="iten">
+      <img src="pizza.webp" alt="pizza">
+      <div class="inf">
+        <span class="titulo">Pizza</span>
+        <p>Massa fina, molho de tomate, queijo derretido e recheio à escolha.</p>
       </div>
-    
-      <div class="iten">
-        <img src="bife.webp" alt="bife">
-        <div class="inf"><span class="titulo">Bife Grelhado</span>
-          <p>Bife suculento, grelhado no ponto, servido com molho caseiro e acompanhado de legumes ou batatas fritas.</p>
-        </div>
-        <span class="preco">1.200 Kz</span>
-        <button class="bbt" data-name="Bife Grelhado" data-price="1200" data-img="bife.webp">+</button>
+      <span class="preco">2.500 Kz</span>
+      <button class="bbt" data-name="Pizza" data-price="2500" data-img="pizza.webp">+</button>
+    </div>
+  </section>
+
+  <!-- ======================= -->
+  <!-- Pratos -->
+  <!-- ======================= -->
+  <section id="pratos">
+    <div class="iten">
+      <img src="fran.webp" alt="frango">
+      <div class="inf">
+        <span class="titulo">Ensopado</span>
+        <p>Carne de porco macia cozida com cebola, alho e especiarias.</p>
       </div>
-    
-      <div class="iten">
-        <img src="espargete.webp" alt="espargete">
-        <div class="inf"><span class="titulo">Macarronada</span>
-          <p>Massa cozida com molho de tomate caseiro e temperos especiais.</p>
-        </div>
-        <span class="preco">1.800 Kz</span>
-        <button class="bbt" data-name="Macarronada" data-price="1800" data-img="espargete.webp">+</button>
+      <span class="preco">2.200 Kz</span>
+      <button class="bbt" data-name="Ensopado" data-price="2200" data-img="fran.webp">+</button>
+    </div>
+
+    <div class="iten">
+      <img src="bife.webp" alt="bife">
+      <div class="inf">
+        <span class="titulo">Bife Grelhado</span>
+        <p>Bife suculento, grelhado no ponto, servido com molho caseiro e acompanhado de legumes ou batatas fritas.</p>
       </div>
-    </section>
-    
-    <!-- Sobremesas -->
-    <section id="Sobremesas">
-      <div class="iten">
-        <img src="blolo1.webp" alt="bolo">
-        <div class="inf"><span class="titulo">Bolo</span>
-          <p>Bolo fofinho, doce na medida certa, feito na hora.</p>
-        </div>
-        <span class="preco">1.000 Kz</span>
-        <button class="bbt" data-name="Bolo" data-price="1000" data-img="blolo1.webp">+</button>
+      <span class="preco">1.200 Kz</span>
+      <button class="bbt" data-name="Bife Grelhado" data-price="1200" data-img="bife.webp">+</button>
+    </div>
+
+    <div class="iten">
+      <img src="espargete.webp" alt="espargete">
+      <div class="inf">
+        <span class="titulo">Macarronada</span>
+        <p>Massa cozida com molho de tomate caseiro e temperos especiais.</p>
       </div>
-    
-      <div class="iten">
-        <img src="blolo2.webp" alt="bolo de pudim">
-        <div class="inf"><span class="titulo">Bolo de Pudim</span>
-          <p>Bolo de pudim com essência de laranja.</p>
-        </div>
-        <span class="preco">3.000 Kz</span>
-        <button class="bbt" data-name="Bolo de Pudim" data-price="3000" data-img="blolo2.webp">+</button>
+      <span class="preco">1.800 Kz</span>
+      <button class="bbt" data-name="Macarronada" data-price="1800" data-img="espargete.webp">+</button>
+    </div>
+  </section>
+
+  <!-- ======================= -->
+  <!-- Sobremesas -->
+  <!-- ======================= -->
+  <section id="Sobremesas">
+    <div class="iten">
+      <img src="blolo1.webp" alt="bolo">
+      <div class="inf">
+        <span class="titulo">Bolo</span>
+        <p>Bolo fofinho, doce na medida certa, feito na hora.</p>
       </div>
-    
-      <div class="iten">
-        <img src="sandy.webp" alt="sandy">
-        <div class="inf"><span class="titulo">Sandy de Chocolate</span>
-          <p>Sobremesa de chocolate com camadas cremosas e cobertura irresistível.</p>
-        </div>
-        <span class="preco">1.200 Kz</span>
-        <button class="bbt" data-name="Sandy de Chocolate" data-price="1200" data-img="sandy.webp">+</button>
+      <span class="preco">1.000 Kz</span>
+      <button class="bbt" data-name="Bolo" data-price="1000" data-img="blolo1.webp">+</button>
+    </div>
+
+    <div class="iten">
+      <img src="blolo2.webp" alt="bolo de pudim">
+      <div class="inf">
+        <span class="titulo">Bolo de Pudim</span>
+        <p>Bolo de pudim com essência de laranja.</p>
       </div>
-    </section>
-    
-    <script>
+      <span class="preco">3.000 Kz</span>
+      <button class="bbt" data-name="Bolo de Pudim" data-price="3000" data-img="blolo2.webp">+</button>
+    </div>
+
+    <div class="iten">
+      <img src="sandy.webp" alt="sandy">
+      <div class="inf">
+        <span class="titulo">Sandy de Chocolate</span>
+        <p>Sobremesa de chocolate com camadas cremosas e cobertura irresistível.</p>
+      </div>
+      <span class="preco">1.200 Kz</span>
+      <button class="bbt" data-name="Sandy de Chocolate" data-price="1200" data-img="sandy.webp">+</button>
+    </div>
+  </section>
+
+  <!-- ======================= -->
+  <!-- Scripts -->
+  <!-- ======================= -->
+  <script>
+    // Adicionar ao carrinho
     const botoes = document.querySelectorAll(".bbt");
-    
     botoes.forEach((botao) => {
       botao.addEventListener("click", () => {
         const nome = botao.getAttribute("data-name");
         const preco = botao.getAttribute("data-price");
         const img = botao.getAttribute("data-img");
-    
+
         let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
         carrinho.push({ nome, preco, img });
         localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    
+
         alert(nome + " adicionado ao carrinho!");
       });
     });
-    </script>
-    <script>
+
+    // Geolocalização
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          // Salva a posição no localStorage para o carrinho usar depois
           const usuario = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
@@ -165,12 +192,41 @@
           console.log("Localização obtida:", usuario);
         },
         (erro) => {
-          alert("Não foi possível pegar sua localização. Permita no navegador.");
+          console.warn("Erro de geolocalização:", erro);
         }
       );
-    } else {
-      alert("Seu navegador não suporta geolocalização.");
     }
-    </script>
-    </body>
-    </html>
+
+    // Instalação PWA
+    let deferredPrompt;
+    const installBtn = document.getElementById("installBtn");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = "block";
+    });
+
+    installBtn.addEventListener("click", () => {
+      installBtn.style.display = "none";
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(choice => {
+        if (choice.outcome === "accepted") {
+          console.log("App instalado!");
+        } else {
+          console.log("Usuário recusou");
+        }
+        deferredPrompt = null;
+      });
+    });
+
+    // Registrar service worker
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker registrado"))
+        .catch(err => console.error("Erro SW:", err));
+    }
+  </script>
+
+</body>
+</html>
