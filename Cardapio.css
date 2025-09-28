@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   font-family: Sans-Serif;
+  
 }
 body{
   background-image: linear-gradient(to left ,#b99447);
@@ -239,4 +240,80 @@ font-family: 'Montserrat', sans-serif;
   transition:2s ;
   
   background:linear-gradient(to left,#fff,#333);
+}
+/*responsividade para tablet*/
+
+@media screen and (min-width:768px){
+  .spinner{
+    width:120px;
+    height: 120vh;
+  }
+  .intro{
+    font-size: 30px;
+  }
+  .titulo{
+    font-size: 60
+  #entradas,#pratos,#Sobremesas{
+  
+  display: grid;
+  grid-template-columns: repeat(3,300px);
+
+}
+body{
+  overflow: auto;
+}
+.cards li{
+  width: 250px;
+  height:300px;
+}
+
+  header {
+    width: 200%; 
+    height: 200%; /* ocupa a altura inteira da tela */
+    background-image: url("fu.webp"); /* substitui pelo caminho da imagem */
+    background-size: cover; /* faz a imagem cobrir toda a área */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat; /* evita repetição */
+    margin: 0;
+    padding: 0;
+  }
+.inf  p {
+    display: none;
+  }
+
+}
+.bbt{
+  position: relative;
+  left:0;
+  border:none;
+  padding: 10px;
+  border-radius: 20%;
+  color:#fff;
+  background:linear-gradient(to left,#6196C1,black);
+}
+
+@media screen and (min-width:768px){
+  /* ... outras regras ... */
+  #entradas,#pratos,#Sobremesas{
+    /* Centralizar o conteúdo da seção */
+    display: grid;
+    /* Usar 'auto-fit' e 'minmax' para deixar a coluna flexível */
+    /* Isso criará quantas colunas couberem, com um mínimo de 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Adicionar um espaçamento entre os itens */
+    margin: 160px auto; /* Adicionar auto para centralizar */
+    padding: 0 20px; /* Adicionar padding nas laterais */
+    max-width: 1200px; /* Limitar a largura máxima para não esticar demais */
+  }
+  /* ... outras regras ... */
+  .titulo{
+  font-size: 10px;
+  text-transform: capitalize;
+}
+header{
+  overflow:hidden;
+}
+}
+#installBtn{
+  background: red;
 }
