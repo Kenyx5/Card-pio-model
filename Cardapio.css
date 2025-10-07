@@ -283,11 +283,18 @@ body{
 
 }
 .bbt{
-  position: relative;
-  left:0;
+  position: absolute;
+  right:0;
+  bottom: -1;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  display:flex;
+  justify-content: start;
+  justify-items: start;
   border:none;
   padding: 10px;
-  border-radius: 20%;
+  border-radius: 30%;
   color:#fff;
   background:linear-gradient(to left,#6196C1,black);
 }
